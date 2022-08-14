@@ -1,4 +1,4 @@
-import json
+import json, time
 import os
 import requests
 import random
@@ -68,6 +68,7 @@ def check_start(bot, CallbackQuery):
         yes = 0
         no = 0
         while running:
+            time.sleep(0.1)
             ii += 1
             user = str(''.join(random.choice(us)
                        for i in range(int(CallbackQuery.data.split("#")[1]))))
