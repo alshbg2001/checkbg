@@ -32,6 +32,14 @@ def start(bot, msg):
         fo = open(str(msg.chat.id)+".txt", "w")
         fo.write("0")
         fo.close()
+    elif msg.chat.id != Dev:
+        reply_markup = InlineKeyboardMarkup([
+            [
+                InlineKeyboardButton('Buy', url='https://t.me/xxcbb')
+            ],
+        ])
+        bot.send_message(
+            msg.chat.id, f"This bot is not for you \n You can buy one of them \n\n Buy : @XXCBB", reply_markup=reply_markup)
 
 
 @bot.on_callback_query()
