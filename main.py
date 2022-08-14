@@ -19,19 +19,21 @@ def start(bot, msg):
     reply_markup = InlineKeyboardMarkup([
         [
             InlineKeyboardButton('start check users 3',
-                                 callback_data=f"check#3"),
+                                callback_data=f"check#3"),
         ],
         [
             InlineKeyboardButton('start chech users 4',
-                                 callback_data=f"check#4"),
+                                callback_data=f"check#4"),
         ],
     ])
     if msg.chat.id == Dev:
         bot.send_message(
             msg.chat.id, f"welcom to bot\n check users telegram", reply_markup=reply_markup)
-        fo = open(str(msg.chat.id)+".txt", "w")
-        fo.write("0")
-        fo.close()
+        fo = open(str(msg.chat.id)+".txt", "r").read()
+        if len(str(fo)) <= 1:
+            fo = open(str(msg.chat.id)+".txt", "w")
+            fo.write("0")
+            fo.close()
     elif msg.chat.id != Dev:
         reply_markup = InlineKeyboardMarkup([
             [
